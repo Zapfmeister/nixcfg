@@ -6,6 +6,9 @@
   ];
 
   features = {
+    desktop = {
+      wayland.enable = true;
+    };
     cli = {
       fish.enable = true;
       fzf.enable = true;
