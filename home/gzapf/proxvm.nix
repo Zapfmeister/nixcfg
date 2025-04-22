@@ -7,7 +7,9 @@
 
   features = {
     cli = {
-      fish.enable = false;
+      fish.enable = true;
+      fzf.enable = true;
+      neofetch.enable = true;
     };
   };
 }
