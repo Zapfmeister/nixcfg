@@ -21,6 +21,7 @@ in
         end
       '';
       shellAbbrs = {
+        "lala" = "echo 'LA LA LA'";
         ".." = "cd ..";
         "..." = "cd ../..";
         ls = "eza";
