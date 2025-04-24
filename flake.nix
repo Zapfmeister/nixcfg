@@ -10,23 +10,30 @@
     Please also check out the starter configs mentioned above.
   '';
 
-  inputs = {
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+  inputs =
+    {
+      home-manager = {
+        url = "github:nix-community/home-manager";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+      nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    dotfiles = {
-      url = "git+https://github.com/Zapfmeister/nixdotfiles.git";
-      flake = false;
+      disko = {
+        url = "github:nix-community/disko";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+      dotfiles = {
+        url = "git+https://github.com/Zapfmeister/nixdotfiles.git";
+        flake = false;
+      };
     };
-  };
 
   outputs =
     { self
     , dotfiles
+    , disko
     , home-manager
     , nixpkgs
     , ...
@@ -49,7 +56,10 @@
       nixosConfigurations = {
         proxvm = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/proxvm ];
+          modules = [
+            ./hosts/proxvm
+            inputs.disko.nixosModules.disko
+          ];
         };
       };
       homeConfigurations = {
