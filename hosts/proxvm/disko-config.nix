@@ -12,7 +12,6 @@
               type = "EF02"; # for grub MBR
             };
             ESP = {
-              device = "/dev/sda";
               size = "512M";
               type = "EF00";
               content = {
@@ -22,7 +21,6 @@
               };
             };
             root = {
-              device = "/dev/sda";
               size = "100%";
               content = {
                 type = "filesystem";

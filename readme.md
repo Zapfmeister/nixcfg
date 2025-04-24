@@ -8,6 +8,17 @@
 nixos-rebuild switch --flake .#proxvm --target-host proxvm --use-remote-sudo
 ```
 
+## Run nativ install
+
+In the terminal of the graphical installer:
+
+```zsh
+git clone repo
+cd into repo
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./hosts/hostname/disko-config.nix
+sudo nix-install --flake .#hostname
+```
+
 ## Variables
 
 home.packages -> User specific packages
