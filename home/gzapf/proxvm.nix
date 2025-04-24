@@ -11,6 +11,7 @@
       {
         wayland.enable = true;
         hyprland.enable = true;
+        fonts.enable = true;
       };
     cli = {
       fish.enable = true;
