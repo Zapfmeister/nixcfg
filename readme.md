@@ -13,10 +13,11 @@ nixos-rebuild switch --flake .#proxvm --target-host proxvm --use-remote-sudo
 In the terminal of the graphical installer:
 
 ```zsh
+delete existing disk config if required
 git clone repo
 cd into repo
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./hosts/hostname/disko-config.nix
-sudo nix-install --flake .#hostname
+sudo nixos-install --flake .#hostname
 ```
 
 ## Variables
