@@ -16,8 +16,15 @@
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
       };
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-      nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+
+      nixpkgs =
+        {
+          url = "github:nixos/nixpkgs/nixos-unstable";
+        };
+
+      nixpkgs-stable = {
+        url = "github:nixos/nixpkgs/nixos-24.11";
+      };
 
       disko = {
         url = "github:nix-community/disko";
@@ -27,6 +34,10 @@
       dotfiles = {
         url = "git+https://github.com/Zapfmeister/nixdotfiles.git";
         flake = false;
+      };
+
+      agenix = {
+        url = "github:ryantm/agenix";
       };
     };
 
@@ -59,6 +70,7 @@
           modules = [
             ./hosts/proxvm
             inputs.disko.nixosModules.disko
+            agenix.nixosModules.default
           ];
         };
       };

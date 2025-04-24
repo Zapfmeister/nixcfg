@@ -30,7 +30,11 @@ sudo nixos-install --flake .#hostname
 nixos-rebuild switch --flake .#proxvm --target-host proxvm --use-remote-sudo
 ```
 
+### Create agenix secrets
 
+```zsh
+nix run github:ryantm/agenix -- -e vars.age
+```
 
 ## Variables
 
