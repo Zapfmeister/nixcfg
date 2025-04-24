@@ -6,6 +6,7 @@
 , ...
 }: {
   imports = [
+    ./extraServices
     ./users # Import users from subfolder
     inputs.home-manager.nixosModules.home-manager
   ];
