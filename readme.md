@@ -1,14 +1,16 @@
 # NixOS Config
 
-## Commands
-
-### Rebuild a remote system via SSH
+## Run nativ install without disko
 
 ```zsh
-nixos-rebuild switch --flake .#proxvm --target-host proxvm --use-remote-sudo
+sudo nano /etc/nixos/configuration.nix
+services.openssh.enable = true;
+nix.settings.experimental-features = ["nix-command" "flakes"];
+nix.settings.trusted-users = ["root" "gzapf"];
+sudo nixos-rebuild switch
 ```
 
-## Run nativ install
+## Run nativ install with disko
 
 In the terminal of the graphical installer:
 
@@ -19,6 +21,16 @@ cd into repo
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./hosts/hostname/disko-config.nix
 sudo nixos-install --flake .#hostname
 ```
+
+## Commands
+
+### Rebuild a remote system via SSH
+
+```zsh
+nixos-rebuild switch --flake .#proxvm --target-host proxvm --use-remote-sudo
+```
+
+
 
 ## Variables
 
