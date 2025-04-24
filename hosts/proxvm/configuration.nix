@@ -85,6 +85,8 @@
 
   # List services that you want to enable:
 
+  services.qemuGuest.enable = true;
+
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "no";
