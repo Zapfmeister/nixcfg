@@ -43,6 +43,7 @@
 
   outputs =
     { self
+    , agenix
     , dotfiles
     , disko
     , home-manager

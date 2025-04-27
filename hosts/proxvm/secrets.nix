@@ -4,21 +4,24 @@
       vars = {
         file = ../../secrets/vars.age;
       };
+      # $username-secrets.age for environment variables that are sourced to fish
       gzapf-secrets = {
         file = ../../secrets/gzapf-secrets.age;
         owner = "gzapf";
-        group = "gzapf";
-        mode = "0400";
+        group = "users";
+        mode = "400";
         path = "/home/gzapf/.secrets";
       };
       wireguard-config = {
         file = ../../secrets/wireguard-config.age;
         owner = "gzapf";
-        group = "gzapf";
+        group = "users";
         mode = "0400";
         path = "/etc/wireguard/wireguard-config.conf";
       };
-
+      nginx-container = {
+        file = ../../secrets/nginx-container.age;
+      };
     };
   };
 }
