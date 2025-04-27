@@ -74,12 +74,25 @@
             agenix.nixosModules.default
           ];
         };
+        x280 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/x280
+            inputs.disko.nixosModules.disko
+            agenix.nixosModules.default
+          ];
+        };
       };
       homeConfigurations = {
-        "gzapf@gzapf" = home-manager.lib.homeManagerConfiguration {
+        "gzapf@proxvm" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/gzapf/proxvm.nix ];
+        };
+        "gzapf@x280" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/gzapf/x280.nix ];
         };
       };
     };
