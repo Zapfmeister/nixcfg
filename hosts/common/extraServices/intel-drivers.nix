@@ -19,7 +19,6 @@ in
         intel-media-driver
         intel-vaapi-driver
         libvdpau-va-gl
-        vpl-gpu-rt # Quick Sync Video
       ];
     };
   };

@@ -79,7 +79,7 @@
           modules = [
             ./hosts/x280
             inputs.disko.nixosModules.disko
-            agenix.nixosModules.default
+           #: agenix.nixosModules.default
           ];
         };
       };
