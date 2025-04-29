@@ -25,15 +25,6 @@
                 mountpoint = "/";
               };
             };
-            encryptedSwap = {
-              size = "32GB";
-              content = {
-                type = "swap";
-                randomEncryption = true;
-                priority = 100;
-                extraArgs = [ "-LencryptedSwap" ];
-              };
-            };
           };
         };
       };
