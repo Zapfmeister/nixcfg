@@ -96,37 +96,42 @@ in
           workspace_swipe = false;
         };
 
-        windowrule = [
-          "float, file_progress"
-          "float, confirm"
-          "float, dialog"
-          "float, download"
-          "float, notification"
-          "float, error"
-          "float, splash"
-          "float, confirmreset"
-          "float, title:Open File"
-          "float, title:branchdialog"
-          "float, Lxappearance"
-          "float, Wofi"
-          "float, dunst"
-          "animation none,Wofi"
-          "float,viewnior"
-          "float,feh"
-          "float, pavucontrol-qt"
-          "float, pavucontrol"
-          "float, file-roller"
-          "fullscreen, wlogout"
-          "float, title:wlogout"
-          "fullscreen, title:wlogout"
-          "idleinhibit focus, mpv"
-          "idleinhibit fullscreen, firefox"
+        windowrulev2 = [
+          "float, title:^(file_progress)$"
+          "float, title:^(confirm)$"
+          "float, title:^(dialog)$"
+          "float, title:^(download)$"
+          "float, title:^(notification)$"
+          "float, title:^(error)$"
+          "float, title:^(splash)$"
+          "float, title:^(confirmreset)$"
+          "float, title:^(Open File)$"
+          "float, title:^(branchdialog)$"
+          "float, class:^(Lxappearance)$"
+          "float, class:^(Wofi)$"
+          "float, class:^(dunst)$"
+          "animation none, class:^(Wofi)$"
+          "float, class:^(viewnior)$"
+          "float, class:^(feh)$"
+          "float, class:^(pavucontrol-qt)$"
+          "float, class:^(pavucontrol)$"
+          "float, class:^(file-roller)$"
+          "fullscreen, class:^(wlogout)$"
+          "float, title:^(wlogout)$"
+          "fullscreen, title:^(wlogout)$"
+          "idleinhibit focus, class:^(mpv)$"
+          "idleinhibit fullscreen, class:^(firefox)$"
           "float, title:^(Media viewer)$"
           "float, title:^(Volume Control)$"
           "float, title:^(Picture-in-Picture)$"
           "size 800 600, title:^(Volume Control)$"
           "move 75 44%, title:^(Volume Control)$"
+          "workspace 1,class:(Emacs)"
+          "workspace 3,opacity 1.0, class:(brave-browser)"
+          "workspace 4,class:(com.obsproject.Studio)"
+
         ];
+
 
         "$mainMod" = "SUPER";
 
@@ -179,11 +184,6 @@ in
           "$mainMod, mouse:273, resizewindow"
         ];
 
-        windowrulev2 = [
-          "workspace 1,class:(Emacs)"
-          "workspace 3,opacity 1.0, class:(brave-browser)"
-          "workspace 4,class:(com.obsproject.Studio)"
-        ];
       };
     };
   };
