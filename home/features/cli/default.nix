@@ -22,7 +22,7 @@
   home.packages = with pkgs; [
     coreutils
     fd
-    htop
+    btop
     httpie
     jq
     procs
