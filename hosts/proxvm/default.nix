@@ -37,7 +37,7 @@
     ../common
     ./configuration.nix
     ./services
-    ./secrets.nix
+    # ./secrets.nix
   ];
 
   extraServices.podman.enable = true;

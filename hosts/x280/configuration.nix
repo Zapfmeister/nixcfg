@@ -9,12 +9,14 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./disko-config.nix
+      ./disko-config.nix
     ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
+
 
   networking.hostName = "x280"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -115,5 +117,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

@@ -71,7 +71,7 @@
           modules = [
             ./hosts/proxvm
             inputs.disko.nixosModules.disko
-            agenix.nixosModules.default
+            # agenix.nixosModules.default
           ];
         };
         x280 = nixpkgs.lib.nixosSystem {
@@ -79,7 +79,7 @@
           modules = [
             ./hosts/x280
             inputs.disko.nixosModules.disko
-           #: agenix.nixosModules.default
+            #: agenix.nixosModules.default
           ];
         };
       };

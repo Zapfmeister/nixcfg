@@ -2,13 +2,13 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/sda";
+        device = "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "500M";
+              size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -23,6 +23,15 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+              };
+            };
+            encryptedSwap = {
+              size = "32GB";
+              content = {
+                type = "swap";
+                randomEncryption = true;
+                priority = 100;
+                extraArgs = [ "-LencryptedSwap" ];
               };
             };
           };
