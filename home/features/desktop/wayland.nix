@@ -244,6 +244,7 @@ in
       wl-mirror
       wl-clipboard
       wlogout
+      wttrbar
       wtype
       ydotool
     ];
