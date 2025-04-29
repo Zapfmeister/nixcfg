@@ -136,7 +136,7 @@ in
         "$mainMod" = "SUPER";
 
         bind = [
-          "$mainMod, return, exec, kitty -e zellij-ps"
+          "$mainMod, return, exec, kitty"
           "$mainMod, t, exec, kitty -e fish -c 'neofetch; exec fish'"
           "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
