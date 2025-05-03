@@ -4,6 +4,7 @@
     ./dotfiles
     ../features/cli
     ../features/desktop
+    ../features/editor
     ./home.nix
   ];
 
@@ -18,6 +19,9 @@
       fish.enable = true;
       fzf.enable = true;
       neofetch.enable = true;
+    };
+    editor = {
+      vscode.enable = true;
     };
   };
   wayland.windowManager.hyprland = {

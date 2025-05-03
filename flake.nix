@@ -103,6 +103,12 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/gzapf/x280.nix ];
         };
+        "gzapf@x13vm" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/gzapf/x13vm.nix ];
+        };
+
       };
     };
 }
