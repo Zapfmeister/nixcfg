@@ -6,14 +6,18 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # ./disko-config.nix
     ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
+
+
 
   networking.hostName = "x13vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -57,7 +61,7 @@
     isNormalUser = true;
     description = "Gerard Zapf";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
@@ -66,9 +70,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  #  git
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    #  git
+    neovim
+    git
+    dig
+    firefox
+    vscode
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -81,7 +90,6 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "no";
@@ -93,8 +101,7 @@
     xwayland.enable = true;
   };
 
-
-  # nix.settings.trusted-users = ["root" "gzapf"];
+  programs.fish.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -109,5 +116,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

@@ -82,6 +82,15 @@
             #: agenix.nixosModules.default
           ];
         };
+        x13vm = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/x13vm
+            # inputs.disko.nixosModules.disko
+            #: agenix.nixosModules.default
+          ];
+        };
+
       };
       homeConfigurations = {
         "gzapf@proxvm" = home-manager.lib.homeManagerConfiguration {

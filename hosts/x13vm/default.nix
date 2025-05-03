@@ -33,5 +33,13 @@
 #:w
 # networking.hostName = "nixos"; # Define your hostname.
 {
-  imports = [../common ./configuration.nix];
+  imports = [
+    ../common
+    ./configuration.nix
+    ./services
+    #    ./secrets.nix
+  ];
+
+  extraServices.podman.enable = false;
+  drivers.intel.enable = false;
 }
